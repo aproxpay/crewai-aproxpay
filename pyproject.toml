@@ -1,0 +1,85 @@
+[project]
+name = "crewai-aproxpay"
+version = "0.1.0"
+description = "CrewAI tools for AproxPay residential proxy — x402 pay-per-request and session passes"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10,<3.14"
+authors = [{ name = "AproxPay" }]
+keywords = ["crewai", "x402", "proxy", "residential-proxy", "aproxpay", "tools"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+  "crewai>=1.0,<2",
+  "x402[httpx]>=0.2.0",
+  "eth-account>=0.13.0",
+  "httpx>=0.27.0",
+  "requests>=2.32.0",
+  "pydantic>=2.0",
+]
+
+[project.urls]
+Homepage = "https://aproxpay.com"
+Repository = "https://github.com/aproxpay/crewai-aproxpay"
+Issues = "https://github.com/aproxpay/crewai-aproxpay/issues"
+Documentation = "https://github.com/aproxpay/crewai-aproxpay#readme"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.9.0",
+  "mypy>=1.14.0",
+  "types-requests>=2.32.0",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.9.0",
+  "mypy>=1.14.0",
+  "types-requests>=2.32.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/crewai_aproxpay"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/crewai_aproxpay", "tests", "examples"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+packages = ["crewai_aproxpay"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["x402.*", "eth_account.*", "crewai.*"]
+ignore_missing_imports = true
