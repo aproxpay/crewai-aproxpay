@@ -1,0 +1,28 @@
+# Content denylist (ripgrep -i -P). One regex per line.
+# Do NOT ban public product hosts (proxy.aproxpay.com, gw.aproxpay.com).
+# Lines starting with # are comments.
+
+DATAIMPULSE_
+CDP_API_KEY
+IPROYAL_
+RAYOBYTE_
+CHAINALYSIS_
+SPAMHAUS_DQS
+MAXMIND_LICENSE
+ADMIN_BIND_IP
+SESSION_GATEWAY_SOCKET_PATH
+DATABASE_URL_UNPOOLED
+UPSTASH_REDIS
+CLERK_SECRET
+SIWE_SESSION
+NCMEC_REPORT
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+\bdokploy\b
+\b[Nn]et[Bb]ird\b
+\baproxcore\b
+\binfra/dokploy\b
+\bHetzner\b
+\bCPX22\b
+-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----
+\b0x[a-fA-F0-9]{64}\b

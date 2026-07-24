@@ -1,0 +1,17 @@
+# Local hooks for the public SDK repo.
+# Install once: pipx install pre-commit && pre-commit install
+# Run all:     pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  - repo: local
+    hooks:
+      - id: public-deny-list
+        name: public deny-list
+        entry: python3 .github/scripts/check_public_deny.py
+        language: system
+        pass_filenames: false

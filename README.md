@@ -116,6 +116,10 @@ uv sync --group dev
 uv run ruff check src tests
 uv run mypy src
 uv run pytest
+
+# Local secret + public-deny hooks (optional, mirrors CI)
+pipx install pre-commit && pre-commit install
+pre-commit run --all-files
 ```
 
 ## License
