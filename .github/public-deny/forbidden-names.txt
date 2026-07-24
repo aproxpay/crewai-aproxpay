@@ -1,0 +1,17 @@
+# Basename denylist for the public crewai-aproxpay repo.
+# One entry per line. Exact basename match against git-tracked files.
+# Lines starting with # are comments.
+
+AGENTS.md
+PLAN.md
+TECH_DEBT.md
+SUBUSERS.md
+METRICS.md
+SERVICES.md
+LAUNCH_BLOCKERS.md
+CLAUDE.md
+.env
+.env.dokploy
+.env.dokploy.web
+.env.local
+secrets.json
